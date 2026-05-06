@@ -5,35 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M. Romy Satriawan - Portofolio</title>
     
-    <!-- Google Fonts: Poppins for modern look -->
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind Config for Dark Mode, Custom Colors, and Animations -->
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
                     colors: {
-                        aesBg: '#FAF9F6',
-                        aesText: '#4A403A',
-                        aesPrimary: '#D4A373', 
-                        aesSecondary: '#FAEDCE', 
-                        galBg: '#05050A',
-                        galText: '#E2E8F0',
-                        galPrimary: '#8B5CF6', 
-                        galSecondary: '#06B6D4', 
+                        aesBg: '#FAF9F6', aesText: '#4A403A', aesPrimary: '#D4A373', aesSecondary: '#FAEDCE', 
+                        galBg: '#05050A', galText: '#E2E8F0', galPrimary: '#8B5CF6', galSecondary: '#06B6D4', 
                     },
                     backgroundImage: {
                         'galaxy-gradient': 'linear-gradient(to bottom right, #05050A, #0A0A1A, #05050A)',
@@ -64,190 +56,64 @@
     </script>
     
     <style>
-        /* Base & Transitions */
-        body { 
-            transition: background-color 0.5s ease, color 0.5s ease; 
-            overflow-x: hidden;
-        }
+        /* Base & Scrolling */
+        body { transition: background-color 0.5s ease, color 0.5s ease; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(212, 163, 115, 0.5); border-radius: 10px; }
+        .dark ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.5); }
         
-        /* View Routing Transitions */
-        .view-section {
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .view-hidden {
-            opacity: 0;
-            pointer-events: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: -10;
-            visibility: hidden;
-        }
+        /* View Routing (SPA) Transitions */
+        .view-section { transition: opacity 0.5s ease, transform 0.5s ease; }
+        .view-hidden { opacity: 0; pointer-events: none; position: absolute; top: 0; left: 0; width: 100%; z-index: -10; visibility: hidden; }
         
-        /* Glassmorphism Classes */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-        .dark .glass-nav {
-            background: rgba(5, 5, 10, 0.4);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
-        }
-        .dark .glass-card {
-            background: rgba(20, 20, 35, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        }
+        /* Advanced Glassmorphism */
+        .glass-nav { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .dark .glass-nav { background: rgba(5, 5, 10, 0.5); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        .glass-card { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05); }
+        .dark .glass-card { background: rgba(20, 20, 35, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); }
 
-        /* Hover Animations for Cards */
+        /* Card Hover Effects */
         .hover-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -5px rgba(0,0,0,0.1); }
         .dark .hover-card:hover { box-shadow: 0 0 30px 0 rgba(139, 92, 246, 0.2); border-color: rgba(139, 92, 246, 0.3); }
 
-        /* Scroll Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Smooth Scroll Reveal Animations */
+        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Stars Background for Galaxy Mode */
+        /* Dark Mode Galaxy Stars */
         .stars-bg { display: none; }
         .dark .stars-bg {
-            display: block;
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2; pointer-events: none;
+            display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            opacity: 0.5;
-            animation: twinkle 3s infinite alternate;
+                radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)), radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat; background-size: 200px 200px; opacity: 0.5; animation: twinkle 3s infinite alternate;
         }
         @keyframes twinkle { 0% { opacity: 0.2; } 100% { opacity: 0.8; } }
-
-        /* AI Chat UI Specifics */
-        #chat-history::-webkit-scrollbar, #solution-output::-webkit-scrollbar { width: 4px; }
-        #chat-history::-webkit-scrollbar-track, #solution-output::-webkit-scrollbar-track { background: transparent; }
-        #chat-history::-webkit-scrollbar-thumb, #solution-output::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.4); border-radius: 10px; }
-        .dark #chat-history::-webkit-scrollbar-thumb, .dark #solution-output::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.6); }
-
-        .typing-dot {
-            display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 4px;
-            animation: typingDot 1.4s infinite ease-in-out both;
-        }
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes typingDot {
-            0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
-            40% { transform: scale(1); opacity: 1; }
-        }
-
-        .markdown-output blockquote {
-            border-left: 3px solid #D4A373; padding-left: 10px; margin-top: 10px; margin-bottom: 10px;
-            background: rgba(212, 163, 115, 0.05); padding-top: 5px; padding-bottom: 5px; border-radius: 4px;
-        }
-        .dark .markdown-output blockquote { border-left-color: #8B5CF6; background: rgba(139, 92, 246, 0.1); }
-        .markdown-output ul { list-style-type: disc; padding-left: 20px; margin: 10px 0; }
-        .markdown-output h3 { font-size: 1.1rem; font-weight: bold; margin: 15px 0 5px 0; }
         
-        /* Timeline styling */
-        .timeline-line {
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, rgba(212, 163, 115, 0.3) 10%, rgba(212, 163, 115, 0.3) 90%, transparent);
-        }
-        .dark .timeline-line {
-            background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.5) 10%, rgba(6, 182, 212, 0.5) 90%, transparent);
-            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-        }
-        @media (min-width: 768px) {
-            .timeline-line { left: 50%; transform: translateX(-50%); }
-        }
+        /* Timeline Line */
+        .timeline-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, rgba(212, 163, 115, 0.3) 10%, rgba(212, 163, 115, 0.3) 90%, transparent); }
+        .dark .timeline-line { background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.5) 10%, rgba(6, 182, 212, 0.5) 90%, transparent); box-shadow: 0 0 10px rgba(139, 92, 246, 0.5); }
+        @media (min-width: 768px) { .timeline-line { left: 50%; transform: translateX(-50%); } }
 
-        /* Memory Match Game Styles */
+        /* Game 1: Memory Match */
         .memory-card { cursor: pointer; perspective: 1000px; aspect-ratio: 1 / 1; }
-        .memory-card-inner {
-            position: relative; width: 100%; height: 100%;
-            text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transform-style: preserve-3d;
-        }
+        .memory-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; }
         .memory-card.flipped .memory-card-inner { transform: rotateY(180deg); }
-        .memory-card-front, .memory-card-back {
-            position: absolute; width: 100%; height: 100%;
-            backface-visibility: hidden; border-radius: 1.5rem;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .memory-card-front {
-            background: rgba(255,255,255,0.4);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.8);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            font-size: 2rem;
-            color: rgba(0,0,0,0.1);
-        }
-        .dark .memory-card-front {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.05);
-        }
-        .memory-card-back {
-            transform: rotateY(180deg);
-            font-size: 2.5rem;
-            color: white;
-            box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
-        }
+        .memory-card-front, .memory-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 1.5rem; display: flex; align-items: center; justify-content: center; }
+        .memory-card-front { background: rgba(255,255,255,0.4); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.8); font-size: 2rem; color: rgba(0,0,0,0.1); }
+        .dark .memory-card-front { background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.05); }
+        .memory-card-back { transform: rotateY(180deg); font-size: 2.5rem; color: white; }
 
-        /* AstroBot Game Styles */
-        #catcher-game-area {
-            position: relative;
-            overflow: hidden;
-            touch-action: none; /* Prevent scrolling when swiping */
-            background: radial-gradient(circle at top, #1e1b4b, #0f172a);
-        }
-        .falling-item {
-            position: absolute;
-            font-size: 2rem;
-            user-select: none;
-            z-index: 10;
-        }
-        #catcher-player {
-            position: absolute;
-            bottom: 10px;
-            font-size: 3.5rem;
-            user-select: none;
-            transition: left 0.1s ease-out;
-            z-index: 20;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
-        }
-        .catcher-particle {
-            position: absolute;
-            font-weight: bold;
-            pointer-events: none;
-            animation: floatUp 1s ease-out forwards;
-        }
-        @keyframes floatUp {
-            0% { opacity: 1; transform: translateY(0) scale(1); }
-            100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
-        }
+        /* Game 2: AstroBot Catcher */
+        #catcher-game-area { position: relative; overflow: hidden; touch-action: none; background: radial-gradient(circle at top, #1e1b4b, #0f172a); }
+        .falling-item { position: absolute; font-size: 2rem; user-select: none; z-index: 10; }
+        #catcher-player { position: absolute; bottom: 10px; font-size: 3.5rem; user-select: none; transition: left 0.1s ease-out; z-index: 20; filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
+        .catcher-particle { position: absolute; font-weight: bold; pointer-events: none; animation: floatUp 1s ease-out forwards; }
+        @keyframes floatUp { 0% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-50px) scale(1.5); } }
     </style>
 </head>
 <body class="font-sans text-aesText bg-aesthetic-gradient dark:bg-galaxy-gradient dark:text-galText antialiased selection:bg-aesPrimary dark:selection:bg-galPrimary selection:text-white bg-fixed">
@@ -256,12 +122,12 @@
     <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none mix-blend-normal dark:mix-blend-screen">
         <div class="stars-bg"></div>
         
-        <!-- Light Mode Orbs -->
+        <!-- Light Mode Aesthetic Orbs -->
         <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-aesPrimary/20 dark:hidden blur-[120px] animate-blob"></div>
         <div class="absolute top-[30%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-orange-200/30 dark:hidden blur-[150px] animate-blob" style="animation-delay: 2s;"></div>
         <div class="absolute bottom-[-10%] left-[20%] w-[45vw] h-[45vw] rounded-full bg-yellow-100/40 dark:hidden blur-[120px] animate-blob" style="animation-delay: 4s;"></div>
 
-        <!-- Dark Mode Intense Glow Orbs (Galaxy/Nebula effect) -->
+        <!-- Dark Mode Intense Glowing Orbs (Galaxy/Nebula effect) -->
         <div class="hidden dark:block absolute top-[-5%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-purple-600/30 blur-[150px] animate-blob mix-blend-screen"></div>
         <div class="hidden dark:block absolute top-[20%] right-[-20%] w-[50vw] h-[50vw] rounded-full bg-cyan-500/20 blur-[150px] animate-blob mix-blend-screen" style="animation-delay: 3s;"></div>
         <div class="hidden dark:block absolute bottom-[-10%] left-[10%] w-[70vw] h-[50vw] rounded-full bg-blue-600/30 blur-[160px] animate-blob mix-blend-screen" style="animation-delay: 5s;"></div>
@@ -269,7 +135,7 @@
         <div class="hidden dark:block absolute top-[50%] left-[50%] w-[80vw] h-[20vw] rounded-full bg-indigo-500/20 blur-[150px] animate-spin-slow origin-top-left pointer-events-none mix-blend-screen"></div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Top Navigation -->
     <nav class="fixed w-full z-50 glass-nav border-b border-white/20 dark:border-white/5 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
@@ -282,21 +148,13 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex space-x-4 items-center" id="nav-links-desktop">
-                    <a href="#tentang" onclick="switchView('portfolio')" class="font-medium text-gray-600 dark:text-gray-300 hover:text-aesPrimary dark:hover:text-galPrimary transition-colors text-sm">Tentang</a>
-                    <a href="#pendidikan" onclick="switchView('portfolio')" class="font-medium text-gray-600 dark:text-gray-300 hover:text-aesPrimary dark:hover:text-galPrimary transition-colors text-sm">Pendidikan</a>
-                    <a href="#prestasi" onclick="switchView('portfolio')" class="font-medium text-gray-600 dark:text-gray-300 hover:text-aesPrimary dark:hover:text-galPrimary transition-colors text-sm">Prestasi</a>
+                    <a href="#tentang" onclick="switchView('portfolio')" class="font-medium text-gray-600 dark:text-gray-300 hover:text-aesPrimary dark:hover:text-galPrimary transition-colors text-sm px-1">Tentang</a>
+                    <a href="#pendidikan" onclick="switchView('portfolio')" class="font-medium text-gray-600 dark:text-gray-300 hover:text-aesPrimary dark:hover:text-galPrimary transition-colors text-sm px-1">Pendidikan</a>
+                    <a href="#prestasi" onclick="switchView('portfolio')" class="font-medium text-gray-600 dark:text-gray-300 hover:text-aesPrimary dark:hover:text-galPrimary transition-colors text-sm px-1">Prestasi</a>
                     
-                    <a href="#simulasi-solusi" onclick="switchView('portfolio')" class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-aesPrimary dark:from-galPrimary dark:to-cyan-400 hover:opacity-80 transition-opacity text-sm flex items-center gap-1">
-                        Solusi AI
-                    </a>
-
-                    <a href="#asisten-ai" onclick="switchView('portfolio')" class="flex items-center gap-1 font-bold text-aesPrimary dark:text-galPrimary hover:opacity-80 transition-opacity text-sm">
-                        <i class="fas fa-robot"></i> Tanya AI
-                    </a>
-
-                    <!-- Game Portal Link -->
-                    <button onclick="switchView('games')" class="flex items-center gap-1 font-bold text-pink-500 dark:text-pink-400 hover:opacity-80 transition-opacity text-sm px-3 py-1.5 rounded-full bg-pink-50 dark:bg-pink-900/30 border border-pink-200 dark:border-pink-800/50">
-                        <i class="fas fa-gamepad animate-pulse"></i> Portal Game
+                    <!-- Portal Game Link -->
+                    <button onclick="switchView('games')" class="flex items-center gap-1.5 font-bold text-pink-500 dark:text-pink-400 hover:opacity-80 transition-opacity text-sm px-4 py-1.5 rounded-full bg-pink-50 dark:bg-pink-900/30 border border-pink-200 dark:border-pink-800/50 hover:scale-105 ml-2">
+                        <i class="fas fa-gamepad animate-pulse"></i> Arcade
                     </button>
                     
                     <!-- Theme Toggle -->
@@ -305,12 +163,11 @@
                         <i class="fas fa-sun hidden dark:block"></i>
                     </button>
                     
-                    <a href="#kontak" onclick="switchView('portfolio')" class="px-5 py-2.5 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] text-sm ml-1">Kontak</a>
+                    <a href="#kontak" onclick="switchView('portfolio')" class="px-6 py-2.5 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] text-sm ml-2">Kontak</a>
                 </div>
 
                 <!-- Mobile Menu Button & Theme Toggle -->
                 <div class="lg:hidden flex items-center gap-4">
-                    <!-- Game Quick Link Mobile -->
                     <button onclick="switchView('games')" class="text-pink-500 dark:text-pink-400 text-xl animate-bounce-fast">
                         <i class="fas fa-gamepad"></i>
                     </button>
@@ -325,58 +182,51 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden glass-card absolute w-full border-t-0 shadow-2xl transition-all duration-300 origin-top">
-            <div class="px-4 pt-2 pb-6 space-y-1 flex flex-col">
-                <a href="#tentang" onclick="switchView('portfolio')" class="block px-3 py-3 font-medium rounded-xl hover:bg-white/50 dark:hover:bg-white/5">Tentang</a>
-                <a href="#pendidikan" onclick="switchView('portfolio')" class="block px-3 py-3 font-medium rounded-xl hover:bg-white/50 dark:hover:bg-white/5">Pendidikan</a>
-                <a href="#prestasi" onclick="switchView('portfolio')" class="block px-3 py-3 font-medium rounded-xl hover:bg-white/50 dark:hover:bg-white/5">Prestasi</a>
-                <a href="#simulasi-solusi" onclick="switchView('portfolio')" class="block px-3 py-3 font-bold text-orange-500 dark:text-galPrimary rounded-xl hover:bg-white/50 dark:hover:bg-white/5">
-                    <i class="fas fa-lightbulb mr-2"></i> Simulasi Solusi ✨
-                </a>
-                <a href="#asisten-ai" onclick="switchView('portfolio')" class="block px-3 py-3 font-bold text-aesPrimary dark:text-cyan-400 rounded-xl hover:bg-white/50 dark:hover:bg-white/5">
-                    <i class="fas fa-robot mr-2"></i> Tanya AI
-                </a>
-                <button onclick="switchView('games')" class="block px-3 py-3 font-bold text-pink-500 dark:text-pink-400 rounded-xl hover:bg-white/50 dark:hover:bg-white/5 text-left w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#tentang" onclick="switchView('portfolio')" class="block px-4 py-3 font-medium rounded-xl hover:bg-white/50 dark:hover:bg-white/5">Tentang</a>
+                <a href="#pendidikan" onclick="switchView('portfolio')" class="block px-4 py-3 font-medium rounded-xl hover:bg-white/50 dark:hover:bg-white/5">Pendidikan</a>
+                <a href="#prestasi" onclick="switchView('portfolio')" class="block px-4 py-3 font-medium rounded-xl hover:bg-white/50 dark:hover:bg-white/5">Prestasi</a>
+                <button onclick="switchView('games')" class="block px-4 py-3 font-bold text-pink-500 dark:text-pink-400 rounded-xl hover:bg-white/50 dark:hover:bg-white/5 text-left w-full">
                     <i class="fas fa-gamepad mr-2"></i> Portal Game 🎮
                 </button>
-                <a href="#kontak" onclick="switchView('portfolio')" class="block px-3 py-3 mt-2 font-bold text-center text-white dark:text-gray-900 bg-gray-900 dark:bg-white rounded-xl shadow-md">Kontak Saya</a>
+                <a href="#kontak" onclick="switchView('portfolio')" class="block px-4 py-3 mt-2 font-bold text-center text-white dark:text-gray-900 bg-gray-900 dark:bg-white rounded-xl shadow-md">Kontak Saya</a>
             </div>
         </div>
     </nav>
+
 
     <!-- ========================================================= -->
     <!-- VIEW 1: PORTFOLIO MAIN PAGE                               -->
     <!-- ========================================================= -->
     <div id="portfolio-view" class="view-section block">
+        
         <!-- Hero Section -->
         <section id="beranda" class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 relative flex items-center min-h-[90vh]">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10 w-full">
                 <!-- Text Content -->
                 <div class="w-full md:w-3/5 text-center md:text-left order-2 md:order-1 reveal">
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-[1.1] mb-6">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-[1.1] mb-6 tracking-tight">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400">M. Romy Satriawan</span>
                     </h1>
-                    <h2 class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6 font-medium">Spesialis Teknologi Informasi & AI Generatif</h2>
+                    <h2 class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6 font-semibold">Spesialis Teknologi Informasi & AI Generatif</h2>
                     <p class="text-gray-600 dark:text-gray-400 text-lg mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                        Menggabungkan pendekatan terstruktur dan inovasi teknologi untuk memecahkan masalah kompleks. Memiliki rekam jejak dalam kepemimpinan dan siap memberikan solusi berbasis AI.
+                        Menggabungkan pendekatan terstruktur dan inovasi teknologi untuk memecahkan masalah kompleks. Memiliki rekam jejak dalam kepemimpinan dan siap memberikan solusi berbasis teknologi.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#simulasi-solusi" class="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-bold hover:scale-105 transition-transform shadow-xl dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2">
-                            Uji Solusi AI Saya <i class="fas fa-arrow-right"></i>
-                        </a>
-                        <a href="#asisten-ai" class="px-8 py-4 glass-card text-gray-800 dark:text-white rounded-full font-bold hover:bg-white/80 dark:hover:bg-white/10 transition-all shadow-sm flex items-center justify-center gap-2 group">
-                            <i class="fas fa-robot text-aesPrimary dark:text-galPrimary group-hover:rotate-12 transition-transform"></i> Ngobrol dengan AI
+                        <a href="#tentang" class="px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-bold hover:scale-105 transition-transform shadow-xl dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2">
+                            Lihat Profil <i class="fas fa-arrow-down"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Image / Avatar -->
                 <div class="w-full md:w-2/5 flex justify-center order-1 md:order-2 reveal">
-                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96 group">
                         <!-- Glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-aesPrimary to-orange-300 dark:from-galPrimary dark:to-cyan-500 rounded-full blur-[80px] opacity-50 dark:opacity-80 animate-pulse"></div>
-                        <img src="https://cdn.phototourl.com/free/2026-04-05-5bca946c-d6ea-43d6-8dc1-685727f3fb86.png" alt="M. Romy Satriawan" class="relative z-10 w-full h-full object-cover rounded-full border-[6px] border-white/50 dark:border-white/10 shadow-2xl dark:shadow-[0_0_40px_rgba(139,92,246,0.3)] animate-float" onerror="this.src='https://ui-avatars.com/api/?name=Romy+Satriawan&size=512&background=D4A373&color=fff'">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-aesPrimary to-orange-300 dark:from-galPrimary dark:to-cyan-500 rounded-full blur-[80px] opacity-60 dark:opacity-80 animate-pulse group-hover:opacity-100 transition-opacity"></div>
+                        <img src="Foto profil.JPEG" alt="M. Romy Satriawan" class="relative z-10 w-full h-full object-cover rounded-full border-[6px] border-white/50 dark:border-white/10 shadow-2xl dark:shadow-[0_0_40px_rgba(139,92,246,0.3)] animate-float" onerror="this.src='https://ui-avatars.com/api/?name=Romy+Satriawan&size=512&background=D4A373&color=fff'">
                     </div>
                 </div>
             </div>
@@ -386,9 +236,9 @@
         <section id="tentang" class="py-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-sm">Tentang Saya</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full mb-10 shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
+                <div class="w-16 h-1.5 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full mb-10 shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
                 
-                <div class="glass-card p-10 rounded-[2rem] text-lg leading-relaxed text-gray-700 dark:text-gray-300 hover-card">
+                <div class="glass-card p-10 md:p-12 rounded-[2rem] text-lg leading-relaxed text-gray-700 dark:text-gray-300 hover-card">
                     Saya mahasiswa Teknologi Informasi di Fakultas Ilmu Komputer, Universitas Brawijaya. Saya memiliki minat pada pengembangan teknologi dan pemecahan masalah melalui pendekatan yang rapi dan terstruktur. Terbiasa bekerja secara mandiri maupun dalam tim, saya juga senang belajar hal baru, cepat beradaptasi, dan fokus menyelesaikan tugas sampai tuntas. Saat ini saya terus mengembangkan kemampuan di bidang IT melalui perkuliahan dan proyek inovatif.
                 </div>
             </div>
@@ -399,13 +249,14 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-sm">Riwayat Pendidikan</h2>
-                    <div class="w-16 h-1 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
                 </div>
 
                 <div class="relative max-w-4xl mx-auto">
+                    <!-- Central Line -->
                     <div class="timeline-line"></div>
                     
-                    <!-- UB -->
+                    <!-- Universitas Brawijaya -->
                     <div class="relative w-full mb-16 md:flex justify-between items-center reveal">
                         <div class="md:w-[45%] md:pr-10 md:text-right ml-12 md:ml-0 order-2 md:order-1 mb-4 md:mb-0">
                             <h3 class="text-2xl font-bold text-gray-900 dark:text-white drop-shadow-sm">Universitas Brawijaya</h3>
@@ -415,7 +266,8 @@
                             </p>
                         </div>
                         
-                        <div class="absolute left-5 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-tr from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 border-4 border-[#FAF9F6] dark:border-[#05050A] shadow-[0_0_15px_rgba(212,163,115,0.6)] dark:shadow-[0_0_20px_rgba(6,182,212,0.8)] z-10"></div>
+                        <!-- Timeline Node -->
+                        <div class="absolute left-[11px] md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-tr from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 border-4 border-[#FAF9F6] dark:border-[#05050A] shadow-[0_0_15px_rgba(212,163,115,0.6)] dark:shadow-[0_0_20px_rgba(6,182,212,0.8)] z-10"></div>
                         
                         <div class="md:w-[45%] md:pl-10 ml-12 md:ml-0 order-3 md:order-3">
                             <div class="glass-card p-8 rounded-3xl hover-card">
@@ -430,7 +282,7 @@
                     </div>
 
                     <!-- SMA -->
-                    <div class="relative w-full md:flex justify-between items-center reveal">
+                    <div class="relative w-full md:flex justify-between items-center reveal" style="transition-delay: 100ms;">
                         <div class="md:w-[45%] md:pr-10 ml-12 md:ml-0 order-2 md:order-3 mb-4 md:mb-0 text-left">
                             <h3 class="text-2xl font-bold text-gray-900 dark:text-white drop-shadow-sm">SMA Negeri 1 Kota Bima</h3>
                             <p class="text-aesPrimary dark:text-cyan-400 font-bold text-lg mt-1 tracking-wide">Umum (Saintek)</p>
@@ -439,7 +291,8 @@
                             </p>
                         </div>
                         
-                        <div class="absolute left-5 md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-tr from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 border-4 border-[#FAF9F6] dark:border-[#05050A] shadow-[0_0_15px_rgba(212,163,115,0.6)] dark:shadow-[0_0_20px_rgba(6,182,212,0.8)] z-10"></div>
+                        <!-- Timeline Node -->
+                        <div class="absolute left-[11px] md:left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-tr from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 border-4 border-[#FAF9F6] dark:border-[#05050A] shadow-[0_0_15px_rgba(212,163,115,0.6)] dark:shadow-[0_0_20px_rgba(6,182,212,0.8)] z-10"></div>
                         
                         <div class="md:w-[45%] md:pl-10 ml-12 md:ml-0 md:text-right order-3 md:order-1">
                             <div class="glass-card p-8 rounded-3xl hover-card text-left md:text-right">
@@ -462,7 +315,7 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-sm">Pengalaman Organisasi & Relawan</h2>
-                    <div class="w-16 h-1 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
@@ -493,7 +346,7 @@
                     </div>
 
                     <!-- Relawan Card -->
-                    <div class="glass-card p-10 rounded-[2rem] hover-card group reveal">
+                    <div class="glass-card p-10 rounded-[2rem] hover-card group reveal" style="transition-delay: 150ms;">
                         <div class="flex items-center justify-between mb-8">
                             <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 text-3xl group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(34,197,94,0.2)] dark:shadow-[0_0_20px_rgba(34,197,94,0.3)]">
                                 <i class="fas fa-leaf"></i>
@@ -526,13 +379,16 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-sm">Prestasi & Sertifikasi</h2>
-                    <div class="w-16 h-1 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
                 </div>
 
                 <!-- SIMT KEMDIKBUD HUGE BANNER -->
                 <a href="https://simt.kemendikdasmen.go.id/resume?id=hQClVlO5WsL3bBnnE4PFcQ&name=m-romy-satriawan" target="_blank" class="reveal block group mb-12">
                     <div class="relative rounded-[2.5rem] p-[2px] overflow-hidden">
+                        <!-- Glowing border background -->
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-aesPrimary to-orange-400 dark:from-galPrimary dark:via-cyan-400 dark:to-blue-600 opacity-80 group-hover:opacity-100 animate-pulse transition-opacity duration-500"></div>
+                        
+                        <!-- Inner Card -->
                         <div class="relative bg-white/90 dark:bg-[#0B0F19]/90 backdrop-blur-2xl rounded-[2.4rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 transition-transform duration-300 group-hover:scale-[1.01]">
                             <div class="flex items-center gap-6 text-left">
                                 <div class="w-20 h-20 rounded-full bg-blue-50 dark:bg-white/5 flex justify-center items-center flex-shrink-0 shadow-inner">
@@ -541,7 +397,7 @@
                                 <div>
                                     <span class="text-xs font-bold tracking-widest uppercase text-blue-600 dark:text-cyan-400 mb-1 block">Validasi Resmi Pemerintah</span>
                                     <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">Kurasi Puspresnas (SIMT)</h3>
-                                    <p class="text-gray-600 dark:text-gray-300">Lihat rekam jejak prestasi resmi saya yang terdaftar di Kementerian Pendidikan.</p>
+                                    <p class="text-gray-600 dark:text-gray-300">Lihat rekam jejak prestasi resmi saya yang terdaftar secara sah di Kementerian Pendidikan.</p>
                                 </div>
                             </div>
                             <div class="flex-shrink-0">
@@ -562,29 +418,32 @@
                     <div class="flex-grow text-center md:text-left z-10">
                         <span class="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-600/50 text-xs font-bold uppercase tracking-widest rounded-md mb-3 shadow-sm">Sertifikasi Profesional (2025 - 2028)</span>
                         <h3 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 drop-shadow-sm">Generative Artificial Intelligence</h3>
-                        <p class="text-gray-700 dark:text-gray-300 mb-3 text-lg">Fundamental Principles and Practical Applications</p>
+                        <p class="text-gray-700 dark:text-gray-300 mb-3 text-lg font-medium">Fundamental Principles and Practical Applications</p>
                         <p class="text-sm text-gray-500 dark:text-gray-400">Penerbit: <span class="font-bold text-gray-800 dark:text-gray-200">Institute for Data Innovation and Artificial Intelligence (IDEA-AI)</span></p>
                         <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 font-mono bg-white/50 dark:bg-black/30 border border-white/30 dark:border-white/10 inline-block px-3 py-1.5 rounded-lg shadow-inner">ID: 4892-2967-4197-5574</p>
                     </div>
                 </div>
 
-                <!-- List Prestasi -->
+                <!-- List Prestasi (Grid with Staggered Animations) -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="glass-card p-8 rounded-3xl hover-card reveal">
+                    <!-- Prestasi 1 -->
+                    <div class="glass-card p-8 rounded-3xl hover-card reveal" style="transition-delay: 100ms;">
                         <div class="text-yellow-500 dark:text-yellow-400 mb-6 text-4xl"><i class="fas fa-trophy drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]"></i></div>
                         <h4 class="font-bold text-gray-900 dark:text-white mb-3 text-xl leading-tight">Ketua TIM Olimpiade KIHAJAR STEM</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-300 mb-5 leading-relaxed">Balai Layanan Platform Teknologi Kemendikbudristek (2023)</p>
                         <span class="text-xs font-bold bg-white/60 dark:bg-black/40 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg border border-white/50 dark:border-white/10 shadow-sm">Finalis Tahap Basic Kab/Kota</span>
                     </div>
                     
-                    <div class="glass-card p-8 rounded-3xl hover-card reveal">
+                    <!-- Prestasi 2 -->
+                    <div class="glass-card p-8 rounded-3xl hover-card reveal" style="transition-delay: 200ms;">
                         <div class="text-yellow-500 dark:text-yellow-400 mb-6 text-4xl"><i class="fas fa-medal drop-shadow-[0_0_10px_rgba(234,179,8,0.5)]"></i></div>
                         <h4 class="font-bold text-gray-900 dark:text-white mb-3 text-xl leading-tight">Nominator (30 Besar) Lomba Esai</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-300 mb-5 leading-relaxed">Diselenggarakan oleh Universitas Terbuka x BPIP (Agustus 2023)</p>
                         <span class="text-xs font-bold bg-white/60 dark:bg-black/40 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg border border-white/50 dark:border-white/10 shadow-sm">Finalis Tingkat Nasional</span>
                     </div>
 
-                    <div class="glass-card p-8 rounded-3xl hover-card reveal">
+                    <!-- Prestasi 3 -->
+                    <div class="glass-card p-8 rounded-3xl hover-card reveal" style="transition-delay: 300ms;">
                         <div class="text-blue-500 dark:text-cyan-400 mb-6 text-4xl"><i class="fas fa-chart-pie drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]"></i></div>
                         <h4 class="font-bold text-gray-900 dark:text-white mb-3 text-xl leading-tight">Peserta Olimpiade Statistika Nasional</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Diselenggarakan oleh Universitas Gadjah Mada (Januari 2024)</p>
@@ -598,39 +457,42 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-sm">Keahlian & Tools</h2>
-                    <div class="w-16 h-1 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-400 mx-auto rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)]"></div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Keahlian Utama -->
                     <div class="reveal">
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3 drop-shadow-sm">
                             <i class="fas fa-star text-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]"></i> Kompetensi Utama
                         </h3>
                         <div class="space-y-4">
-                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
-                                <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Generative AI Fundamentals</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Prompting, LLM workflows, basic implementation & integration.</p>
+                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform shadow-sm">
+                                <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Teknologi Informasi & Analisis Data</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Pengolahan data, pemrograman, serta pemahaman infrastruktur dan alur sistem IT.</p>
                             </div>
-                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform shadow-sm">
                                 <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Komunikasi & Public Relations</h4>
                                 <p class="text-sm text-gray-600 dark:text-gray-300">Public speaking, komunikasi stakeholder, penyampaian informasi resmi.</p>
                             </div>
-                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform shadow-sm">
                                 <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Manajemen Publikasi & Medsos</h4>
                                 <p class="text-sm text-gray-600 dark:text-gray-300">Perencanaan konten, penjadwalan posting, pengelolaan interaksi audiens.</p>
                             </div>
-                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform">
+                            <div class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-transform shadow-sm">
                                 <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">Koordinasi & Dokumentasi</h4>
                                 <p class="text-sm text-gray-600 dark:text-gray-300">Pengaturan tim foto/video, perencanaan liputan, arsip & recap kegiatan.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="reveal">
+                    <!-- Tools & Software -->
+                    <div class="reveal" style="transition-delay: 150ms;">
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3 drop-shadow-sm">
                             <i class="fas fa-laptop-code text-aesPrimary dark:text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]"></i> Software & Tools
                         </h3>
-                        <div class="glass-card p-8 rounded-[2rem] h-full">
+                        
+                        <div class="glass-card p-8 md:p-10 rounded-[2rem] h-full shadow-lg">
                             <div class="mb-8">
                                 <h4 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">Data & Development</h4>
                                 <div class="flex flex-wrap gap-3">
@@ -642,6 +504,7 @@
                                     <span class="skill-badge px-4 py-2.5 bg-white/70 dark:bg-black/40 border border-white/50 dark:border-white/10 rounded-xl text-sm font-bold text-gray-800 dark:text-gray-200 shadow-sm backdrop-blur-sm"><i class="fab fa-google text-red-500 mr-2 text-lg"></i> GCP</span>
                                 </div>
                             </div>
+
                             <div class="mb-8">
                                 <h4 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">Media & Desain</h4>
                                 <div class="flex flex-wrap gap-3">
@@ -650,6 +513,7 @@
                                     <span class="skill-badge px-4 py-2.5 bg-white/70 dark:bg-black/40 border border-white/50 dark:border-white/10 rounded-xl text-sm font-bold text-gray-800 dark:text-gray-200 shadow-sm backdrop-blur-sm">Canva</span>
                                 </div>
                             </div>
+
                             <div>
                                 <h4 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">Produktivitas</h4>
                                 <div class="flex flex-wrap gap-3">
@@ -659,103 +523,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI Solution Simulator (Gemini API) -->
-        <section id="simulasi-solusi" class="py-24 relative">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
-                <div class="text-center mb-12">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100/80 dark:bg-purple-900/60 text-orange-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4 border border-orange-200 dark:border-purple-500/50 backdrop-blur-sm shadow-[0_0_10px_rgba(249,115,22,0.3)] dark:shadow-[0_0_15px_rgba(6,182,212,0.4)]">
-                        <i class="fas fa-lightbulb animate-pulse"></i> Showcase Kreativitas
-                    </span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-sm">
-                        Uji Kemampuan Saya ✨
-                    </h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Berikan saya masalah bisnis atau studi kasus perusahaan Anda. AI saya akan merancang usulan solusi teknis otomatis menggunakan <span class="font-bold text-aesPrimary dark:text-cyan-400">Tech Stack</span> yang saya miliki.
-                    </p>
-                </div>
-
-                <div class="glass-card rounded-[2.5rem] shadow-2xl p-8 md:p-12 hover-card">
-                    <form id="solution-form" class="mb-8">
-                        <label for="problem-input" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 ml-2">Deskripsikan masalah perusahaan Anda:</label>
-                        <div class="relative">
-                            <textarea id="problem-input" rows="4" placeholder="Contoh: Kami memiliki banyak data pelanggan yang tidak terstruktur dan tim CS kewalahan membalas pertanyaan yang berulang..." class="w-full bg-white/60 dark:bg-black/50 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white text-base rounded-[2rem] focus:ring-4 focus:ring-aesPrimary/30 dark:focus:ring-cyan-500/30 focus:border-transparent block px-6 py-5 transition-all shadow-inner resize-none backdrop-blur-md" required></textarea>
-                        </div>
-                        <div class="mt-6 flex justify-end">
-                            <button type="submit" id="solution-submit" class="text-white bg-gradient-to-r from-orange-500 to-aesPrimary dark:from-galPrimary dark:to-cyan-500 hover:opacity-90 font-bold rounded-full text-base px-10 py-4 text-center flex items-center justify-center gap-3 transition-transform shadow-xl dark:shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-95">
-                                <i class="fas fa-magic"></i> Rancang Solusi
-                            </button>
-                        </div>
-                    </form>
-
-                    <!-- Output Area -->
-                    <div id="solution-output-container" class="hidden transform transition-all duration-500 origin-top">
-                        <h3 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-3 border-b border-gray-200 dark:border-gray-700 pb-3 ml-2">
-                            <i class="fas fa-file-code text-aesPrimary dark:text-cyan-400 text-lg"></i> Usulan Solusi Teknis Romy
-                        </h3>
-                        <div id="solution-output" class="bg-white/40 dark:bg-black/30 rounded-[2rem] p-8 border border-white/50 dark:border-white/5 text-gray-800 dark:text-gray-200 text-base leading-relaxed overflow-y-auto max-h-[500px] markdown-output shadow-inner backdrop-blur-sm">
-                            <!-- Content injected here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Advanced Gemini AI Assistant Section -->
-        <section id="asisten-ai" class="py-24 relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
-                <div class="text-center mb-12">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100/80 dark:bg-purple-900/60 text-blue-600 dark:text-purple-300 text-xs font-bold uppercase tracking-widest mb-4 border border-blue-200 dark:border-purple-500/50 backdrop-blur-sm shadow-[0_0_10px_rgba(59,130,246,0.3)] dark:shadow-[0_0_15px_rgba(139,92,246,0.4)]">
-                        <i class="fas fa-bolt text-yellow-500 drop-shadow-[0_0_5px_rgba(234,179,8,0.8)]"></i> Ditenagai Gemini 2.5
-                    </span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-sm">
-                        Asisten AI Romy ✨
-                    </h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Coba tanyakan apa saja tentang kualifikasi, rekam jejak, dan keahlian saya. Asisten interaktif ini siap melayani Anda 24/7.
-                    </p>
-                </div>
-
-                <!-- Chat Interface -->
-                <div class="glass-card rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col h-[600px] hover-card">
-                    <div class="bg-white/50 dark:bg-black/60 backdrop-blur-xl px-8 py-6 flex items-center justify-between border-b border-white/50 dark:border-white/10">
-                        <div class="flex items-center gap-5">
-                            <div class="w-14 h-14 bg-gradient-to-br from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-500 rounded-full flex justify-center items-center shadow-[0_0_15px_rgba(212,163,115,0.4)] dark:shadow-[0_0_20px_rgba(6,182,212,0.4)] text-white">
-                                <i class="fas fa-robot text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-xl text-gray-900 dark:text-white leading-tight tracking-wide">Romy AI <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block animate-pulse mb-0.5 ml-1 shadow-[0_0_8px_#22c55e]"></span></h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Online | Cepat merespons</p>
-                            </div>
-                        </div>
-                        <button onclick="clearChat()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 text-gray-500 hover:text-red-500 dark:hover:text-red-400 flex items-center justify-center transition-colors shadow-sm" title="Bersihkan Obrolan">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
-
-                    <div class="px-8 py-4 bg-gray-50/50 dark:bg-black/30 border-b border-white/50 dark:border-white/5 flex gap-3 overflow-x-auto whitespace-nowrap hide-scrollbar">
-                        <button onclick="sendQuickPrompt('Ceritakan ringkasan profil Romy')" class="text-sm font-bold bg-white/80 dark:bg-white/10 border border-white/50 dark:border-white/5 text-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full hover:bg-aesPrimary hover:text-white dark:hover:bg-galPrimary transition-all shadow-sm">👤 Ringkasan Profil</button>
-                        <button onclick="sendQuickPrompt('Apa saja prestasi akademik Romy?')" class="text-sm font-bold bg-white/80 dark:bg-white/10 border border-white/50 dark:border-white/5 text-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full hover:bg-aesPrimary hover:text-white dark:hover:bg-galPrimary transition-all shadow-sm">🏆 Prestasi</button>
-                        <button onclick="sendQuickPrompt('Jelaskan pengalaman Romy di bidang AI')" class="text-sm font-bold bg-white/80 dark:bg-white/10 border border-white/50 dark:border-white/5 text-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full hover:bg-aesPrimary hover:text-white dark:hover:bg-galPrimary transition-all shadow-sm">🤖 Pengalaman AI</button>
-                        <button onclick="sendQuickPrompt('Apa link Instagram Romy?')" class="text-sm font-bold bg-white/80 dark:bg-white/10 border border-white/50 dark:border-white/5 text-gray-700 dark:text-gray-200 px-5 py-2.5 rounded-full hover:bg-aesPrimary hover:text-white dark:hover:bg-galPrimary transition-all shadow-sm">📱 Instagram</button>
-                    </div>
-
-                    <div id="chat-history" class="flex-1 p-8 overflow-y-auto flex flex-col gap-6 bg-transparent scroll-smooth">
-                        <!-- Default Initial Message added via JS -->
-                    </div>
-
-                    <div class="p-6 bg-white/50 dark:bg-black/60 backdrop-blur-xl border-t border-white/50 dark:border-white/10">
-                        <form id="chat-form" class="flex gap-4 relative">
-                            <input type="text" id="chat-input" placeholder="Tanya sesuatu tentang Romy..." autocomplete="off"
-                                class="flex-1 bg-white/80 dark:bg-black/50 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white text-base rounded-[1.5rem] focus:ring-4 focus:ring-aesPrimary/30 dark:focus:ring-cyan-500/30 focus:border-transparent block w-full px-6 py-4 transition-all shadow-inner backdrop-blur-sm" required>
-                            <button type="submit" id="chat-submit" class="text-white bg-gray-900 dark:bg-white dark:text-gray-900 hover:scale-105 font-bold rounded-[1.5rem] text-base px-8 py-4 text-center flex items-center justify-center gap-2 transition-transform shadow-lg active:scale-95">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -821,7 +588,6 @@
         </footer>
     </div>
 
-
     <!-- ========================================================= -->
     <!-- VIEW 2: ARCADE/GAMES PAGE                                 -->
     <!-- ========================================================= -->
@@ -829,13 +595,13 @@
         <div class="max-w-6xl mx-auto">
             
             <div class="flex items-center justify-between mb-10">
-                <button onclick="switchView('portfolio')" class="glass-card px-6 py-3 rounded-full text-gray-800 dark:text-white font-bold hover:bg-white/80 dark:hover:bg-white/10 transition-all flex items-center gap-2">
+                <button onclick="switchView('portfolio')" class="glass-card px-6 py-3 rounded-full text-gray-800 dark:text-white font-bold hover:bg-white/80 dark:hover:bg-white/10 transition-all flex items-center gap-2 shadow-md">
                     <i class="fas fa-arrow-left"></i> Kembali ke Profil
                 </button>
                 <h2 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 text-center uppercase tracking-widest flex items-center gap-3">
                     <i class="fas fa-gamepad text-pink-500"></i> Arcade Romy
                 </h2>
-                <div class="w-24 hidden md:block"></div><!-- Spacer for centering -->
+                <div class="w-32 hidden md:block"></div>
             </div>
 
             <p class="text-center text-gray-600 dark:text-gray-300 text-lg mb-12">Area santai khusus untuk melepas penat. Selamat bermain! 🎮✨</p>
@@ -878,7 +644,7 @@
                             Game Khusus Anak-anak & Dewasa
                         </span>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">AstroBot Tangkap Bintang 🤖🌟</h3>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm">Geser/Sentuh robot untuk menangkap bintang (🌟⚙️) dan hindari monster bug (🐛👾)!</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">Geser/Sentuh robot untuk menangkap bintang (🌟) dan hindari bug (👾)!</p>
                     </div>
 
                     <div class="flex justify-between items-center mb-4 px-2">
@@ -890,8 +656,8 @@
                         </div>
                     </div>
 
-                    <!-- AstroBot Game Canvas / Container -->
-                    <div id="catcher-game-area" class="w-full h-[350px] md:h-[400px] rounded-3xl border-4 border-white/20 dark:border-white/10 shadow-inner cursor-pointer">
+                    <!-- AstroBot Game Canvas -->
+                    <div id="catcher-game-area" class="w-full h-[350px] md:h-[400px] rounded-3xl border-4 border-white/20 dark:border-white/10 shadow-inner cursor-pointer relative">
                         
                         <!-- Overlay Start/Game Over -->
                         <div id="catcher-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm z-50 flex flex-col items-center justify-center rounded-[1.2rem]">
@@ -902,13 +668,21 @@
                             </button>
                         </div>
 
-                        <!-- The Player Robot -->
+                        <!-- Player Robot -->
                         <div id="catcher-player">🤖</div>
                     </div>
                 </div>
 
             </div>
         </div>
+        
+        <footer class="py-8 relative z-10 border-t border-gray-200/50 dark:border-white/5 mt-10">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="text-gray-500 dark:text-gray-500 text-sm font-bold tracking-wide">
+                    &copy; 2026 M. Romy Satriawan.
+                </p>
+            </div>
+        </footer>
     </div>
 
 
@@ -918,9 +692,7 @@
         // UI & THEME LOGIC
         // ==========================================
         const htmlElement = document.documentElement;
-        const themeToggleDesktop = document.getElementById('theme-toggle');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-
+        
         function initTheme() {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 htmlElement.classList.add('dark');
@@ -939,50 +711,55 @@
             }
         }
 
-        themeToggleDesktop.addEventListener('click', toggleTheme);
-        themeToggleMobile.addEventListener('click', toggleTheme);
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+        if(themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
         initTheme();
 
         // ==========================================
-        // SPA ROUTING LOGIC (Portfolio <-> Games)
+        // SPA ROUTING LOGIC
         // ==========================================
         const portfolioView = document.getElementById('portfolio-view');
         const gamesView = document.getElementById('games-view');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 
         function switchView(view) {
             // Close mobile menu if open
-            document.getElementById('mobile-menu').classList.add('hidden');
-            const icon = document.getElementById('mobile-menu-btn').querySelector('i');
-            icon.classList.add('fa-bars');
-            icon.classList.remove('fa-times');
+            if(mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if(icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-times'); }
+            }
 
             if(view === 'games') {
-                portfolioView.classList.remove('block');
-                portfolioView.classList.add('view-hidden');
+                if(portfolioView) { portfolioView.classList.remove('block'); portfolioView.classList.add('view-hidden'); }
+                if(gamesView) { gamesView.classList.remove('view-hidden'); gamesView.classList.add('block'); }
                 
-                gamesView.classList.remove('view-hidden');
-                gamesView.classList.add('block');
-                
-                window.scrollTo(0, 0);
-                
-                // Initialize games if not already
-                if(moves === 0 && !isLocked) initMemoryGame();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if(moves === 0 && !isLocked && typeof initMemoryGame === 'function') initMemoryGame();
             } else {
-                gamesView.classList.remove('block');
-                gamesView.classList.add('view-hidden');
+                if(gamesView) { gamesView.classList.remove('block'); gamesView.classList.add('view-hidden'); }
+                if(portfolioView) { portfolioView.classList.remove('view-hidden'); portfolioView.classList.add('block'); }
                 
-                portfolioView.classList.remove('view-hidden');
-                portfolioView.classList.add('block');
-                
-                // Pause catcher game if running
-                if(isCatcherPlaying) endGame();
+                if(typeof endGame === 'function' && isCatcherPlaying) endGame();
             }
         }
 
+        // Mobile Menu Toggle
+        if(mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileMenuBtn.querySelector('i');
+                if(icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }
+            });
+        }
+
         // ==========================================
-        // SCROLL REVEAL ANIMATION
+        // SCROLL REVEAL ANIMATION (FLAWLESS)
         // ==========================================
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observerOptions = { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -992,129 +769,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Mobile Menu Toggling
-        const btnMenu = document.getElementById('mobile-menu-btn');
-        const menuCont = document.getElementById('mobile-menu');
-        const iconMenu = btnMenu.querySelector('i');
-        btnMenu.addEventListener('click', () => {
-            menuCont.classList.toggle('hidden');
-            iconMenu.classList.toggle('fa-bars');
-            iconMenu.classList.toggle('fa-times');
-        });
-
-
-        // ==========================================
-        // GEMINI API & AI SIMULATOR & CHATBOT
-        // ==========================================
-        const apiKey = "AIzaSyABNxYNd6PrLsZQ-iVyekX6TkMw2D-Ud9U"; 
-
-        async function fetchGeminiAPI(payload) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const maxRetries = 5; const delays = [1000, 2000, 4000, 8000, 16000];
-
-            for (let i = 0; i <= maxRetries; i++) {
-                try {
-                    const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-                    const result = await response.json();
-                    return result.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, tidak ada tanggapan.";
-                } catch (error) {
-                    if (i === maxRetries) return "Mohon maaf, sistem AI saat ini sedang sibuk atau ada gangguan jaringan. Silakan hubungi Romy langsung via WhatsApp atau Email. 🙏";
-                    await new Promise(resolve => setTimeout(resolve, delays[i]));
-                }
-            }
-        }
-
-        function parseMarkdown(text) {
-            let html = text.replace(/### (.*?)\n/g, '<h3>$1</h3>');
-            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-            html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" class="text-blue-500 font-bold underline hover:text-blue-600 transition-colors">$1</a>');
-            html = html.replace(/\n/g, '<br>');
-            html = html.replace(/<br>- /g, '<br>• ');
-            html = html.replace(/<br>\* /g, '<br>• ');
-            return html;
-        }
-
-        // SIMULATOR
-        const solForm = document.getElementById('solution-form');
-        const solInput = document.getElementById('problem-input');
-        const solBtn = document.getElementById('solution-submit');
-        const solOutCont = document.getElementById('solution-output-container');
-        const solOut = document.getElementById('solution-output');
-        const simInst = `Kamu adalah M. Romy Satriawan, seorang spesialis IT dan Generative AI. 
-Pengunjung web (biasanya perekrut) akan memberikan masalah atau studi kasus bisnis. 
-Tugasmu: 1. Analisis cepat. 2. Usulkan Solusi Teknis High-Level. 3. WAJIB integrasikan Tech Stack relevan (Python, GCP, Generative AI, SQL, Tableau). 4. Maksimal 3 paragraf profesional. 5. Bahasa Indonesia. Awali sapaan, akhiri ajakan kolaborasi.`;
-
-        solForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const text = solInput.value.trim();
-            if (!text) return;
-
-            solInput.disabled = true; solBtn.disabled = true;
-            solBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Merancang...';
-            solOutCont.classList.remove('hidden');
-            solOut.innerHTML = `<div class="flex items-center gap-3 text-gray-500"><span class="typing-dot bg-aesPrimary dark:bg-cyan-400"></span><span class="typing-dot bg-aesPrimary dark:bg-cyan-400"></span><span class="typing-dot bg-aesPrimary dark:bg-cyan-400"></span><span class="text-sm font-bold italic">Merancang arsitektur solusi...</span></div>`;
-
-            const res = await fetchGeminiAPI({ contents: [{ parts: [{ text: text }] }], systemInstruction: { parts: [{ text: simInst }] } });
-            solOut.innerHTML = parseMarkdown(res);
-            solInput.disabled = false; solBtn.disabled = false;
-            solBtn.innerHTML = '<i class="fas fa-magic"></i> Rancang Solusi Ulang';
-        });
-
-        // CHATBOT
-        const chatF = document.getElementById('chat-form');
-        const chatIn = document.getElementById('chat-input');
-        const chatHist = document.getElementById('chat-history');
-        const chatB = document.getElementById('chat-submit');
-        const chatInst = `Kamu adalah "Romy AI", asisten rekrutmen cerdas di portofolio M. Romy Satriawan. 
-Konteks Romy: Mahasiswa TI UB (IPK 3.76). Keahlian: Generative AI, Komunikasi, Medsos. Tools: Python, SQL, Tableau, TensorFlow, R, GCP, CapCut, Canva. Pengalaman: Kabid Informasi OSIS, Relawan Konservasi. Prestasi: Sertifikasi IDEA-AI, Ketua KIHAJAR STEM Prov, Nominator Esai Nasional BPIP. Link SIMT: https://simt.kemendikdasmen.go.id/resume?id=hQClVlO5WsL3bBnnE4PFcQ&name=m-romy-satriawan. IG: @romystwnnn.
-Aturan: Profesional, ramah, ringkas (maks 2 paragraf). Gunakan list. Berikan link jika ditanya Instagram/bukti. Arahkan ke keahlian Romy jika ditanya luar konteks.`;
-
-        function showWelcomeMessage() {
-            chatHist.innerHTML = '';
-            appendMsg(`Halo! Saya Asisten AI Romy. Saya memiliki informasi lengkap mengenai riwayat pendidikan, skill teknis (Python, AI, Data), pengalaman, hingga kontak Instagram (@romystwnnn) dan link bukti SIMT Romy.<br><br>Ada yang ingin Anda ketahui? 🚀`, false);
-        }
-        showWelcomeMessage();
-        function clearChat() { showWelcomeMessage(); }
-
-        function appendMsg(text, isUser = false) {
-            const w = document.createElement('div');
-            w.className = `flex gap-4 max-w-[88%] ${isUser ? 'ml-auto flex-row-reverse' : ''} mb-2`;
-            w.style.animation = "fadeIn 0.5s ease-out forwards";
-            
-            const ava = document.createElement('div');
-            ava.className = `w-10 h-10 rounded-full flex justify-center items-center flex-shrink-0 mt-1 shadow-md ${isUser ? 'bg-gray-800 dark:bg-white text-white dark:text-gray-900' : 'bg-gradient-to-br from-aesPrimary to-orange-400 dark:from-galPrimary dark:to-cyan-500 text-white'}`;
-            ava.innerHTML = isUser ? '<i class="fas fa-user text-sm"></i>' : '<i class="fas fa-robot text-sm"></i>';
-
-            const bub = document.createElement('div');
-            bub.className = `p-5 rounded-[1.5rem] shadow-sm text-base leading-relaxed backdrop-blur-md ${isUser ? 'bg-gray-800 dark:bg-white text-white dark:text-gray-900 rounded-tr-sm' : 'bg-white/80 dark:bg-black/40 text-gray-800 dark:text-gray-200 border border-white/50 dark:border-white/5 rounded-tl-sm'}`;
-            bub.innerHTML = isUser ? text : parseMarkdown(text); 
-
-            w.appendChild(ava); w.appendChild(bub);
-            chatHist.appendChild(w); chatHist.scrollTop = chatHist.scrollHeight;
-        }
-
-        function showLdg() {
-            const w = document.createElement('div'); w.id = 'ai-ldg'; w.className = 'flex gap-4 max-w-[88%] mb-2'; w.style.animation = "fadeIn 0.5s ease-out forwards";
-            w.innerHTML = `<div class="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-700 text-white flex justify-center items-center flex-shrink-0 mt-1 shadow-md"><i class="fas fa-robot text-sm"></i></div><div class="bg-white/80 dark:bg-black/40 p-5 rounded-[1.5rem] rounded-tl-sm shadow-sm border border-white/50 dark:border-white/5 flex items-center h-[60px] backdrop-blur-md"><div class="flex items-center pt-1"><span class="typing-dot bg-gray-500 dark:bg-gray-400"></span><span class="typing-dot bg-gray-500 dark:bg-gray-400"></span><span class="typing-dot bg-gray-500 dark:bg-gray-400"></span></div></div>`;
-            chatHist.appendChild(w); chatHist.scrollTop = chatHist.scrollHeight;
-        }
-
-        function sendQuickPrompt(q) { chatIn.value = q; chatF.dispatchEvent(new Event('submit')); }
-
-        chatF.addEventListener('submit', async (e) => {
-            e.preventDefault(); const t = chatIn.value.trim(); if (!t) return;
-            appendMsg(t, true); chatIn.value = ''; chatIn.disabled = true; chatB.disabled = true; chatB.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
-            showLdg();
-            const res = await fetchGeminiAPI({ contents: [{ parts: [{ text: t }] }], systemInstruction: { parts: [{ text: chatInst }] } });
-            if(document.getElementById('ai-ldg')) document.getElementById('ai-ldg').remove();
-            appendMsg(res, false);
-            chatIn.disabled = false; chatB.disabled = false; chatB.innerHTML = '<i class="fas fa-paper-plane"></i>'; chatIn.focus();
-        });
-
+        document.querySelectorAll('.reveal').forEach(el => { observer.observe(el); });
 
         // ==========================================
         // GAME 1: MEMORY MATCH
@@ -1125,27 +780,26 @@ Aturan: Profesional, ramah, ringkas (maks 2 paragraf). Gunakan list. Berikan lin
         const gridEl = document.getElementById('game-grid'), movesEl = document.getElementById('moves-count'), winMsg = document.getElementById('win-message'), finMoves = document.getElementById('final-moves');
 
         function initMemoryGame() {
+            if(!gridEl) return;
             gCards = gCards.sort(() => Math.random() - 0.5);
-            gridEl.innerHTML = ''; flipped = []; matched = 0; moves = 0; isLocked = false; movesEl.textContent = moves;
-            winMsg.classList.add('hidden');
+            gridEl.innerHTML = ''; flipped = []; matched = 0; moves = 0; isLocked = false; if(movesEl) movesEl.textContent = moves; if(winMsg) winMsg.classList.add('hidden');
             
             gCards.forEach((i, idx) => {
-                const c = document.createElement('div'); c.className = 'memory-card'; c.dataset.icon = i; c.dataset.index = idx;
+                const c = document.createElement('div'); c.className = 'memory-card'; c.dataset.icon = i;
                 c.innerHTML = `<div class="memory-card-inner"><div class="memory-card-front"><i class="fas fa-question text-3xl opacity-30"></i></div><div class="memory-card-back bg-gradient-to-br from-blue-400 to-indigo-500"><i class="fas ${i}"></i></div></div>`;
                 c.addEventListener('click', function() {
                     if (isLocked || this === flipped[0]) return;
                     this.classList.add('flipped'); flipped.push(this);
                     if (flipped.length === 2) {
-                        moves++; movesEl.textContent = moves;
+                        moves++; if(movesEl) movesEl.textContent = moves;
                         if (flipped[0].dataset.icon === flipped[1].dataset.icon) {
                             flipped[0].removeEventListener('click', arguments.callee); flipped[1].removeEventListener('click', arguments.callee);
                             flipped[0].querySelector('.memory-card-back').classList.add('shadow-[0_0_20px_rgba(255,255,255,0.8)]');
                             flipped[1].querySelector('.memory-card-back').classList.add('shadow-[0_0_20px_rgba(255,255,255,0.8)]');
                             matched++; flipped = [];
-                            if (matched === techIcons.length) { setTimeout(() => { winMsg.classList.remove('hidden'); finMoves.textContent = moves; }, 500); }
+                            if (matched === techIcons.length) { setTimeout(() => { if(winMsg) winMsg.classList.remove('hidden'); if(finMoves) finMoves.textContent = moves; }, 500); }
                         } else {
-                            isLocked = true;
-                            setTimeout(() => { flipped[0].classList.remove('flipped'); flipped[1].classList.remove('flipped'); flipped = []; isLocked = false; }, 1000);
+                            isLocked = true; setTimeout(() => { flipped[0].classList.remove('flipped'); flipped[1].classList.remove('flipped'); flipped = []; isLocked = false; }, 1000);
                         }
                     }
                 });
@@ -1155,180 +809,112 @@ Aturan: Profesional, ramah, ringkas (maks 2 paragraf). Gunakan list. Berikan lin
 
 
         // ==========================================
-        // GAME 2: ASTROBOT CATCHER (For Kids & All Ages)
+        // GAME 2: ASTROBOT CATCHER
         // ==========================================
         const catcherArea = document.getElementById('catcher-game-area');
         const catcherPlayer = document.getElementById('catcher-player');
-        const scoreEl = document.getElementById('catcher-score');
-        const livesEl = document.getElementById('catcher-lives');
-        
-        let cScore = 0;
-        let cLives = 3;
-        let isCatcherPlaying = false;
-        let catcherFrameId;
-        let fallingItems = [];
-        let itemSpawnCounter = 0;
-        let playerX = 50; // percentage
-        
-        // Emojis for the game
-        const goodItems = ['🌟', '⚙️', '⚡', '💎', '🚀'];
-        const badItems = ['🐛', '👾', '🕷️'];
+        let cScore = 0, cLives = 3, isCatcherPlaying = false, catcherFrameId, fallingItems = [], playerX = 50, itemSpawnCounter = 0;
+        const goodItems = ['🌟', '⚙️', '⚡', '💎', '🚀']; const badItems = ['🐛', '👾', '🕷️'];
 
-        // Desktop Mouse / Mobile Touch Controls
-        let isDragging = false;
-        
-        catcherArea.addEventListener('mousedown', (e) => { isDragging = true; updatePlayerPos(e.clientX); });
-        window.addEventListener('mousemove', (e) => { if(isDragging && isCatcherPlaying) updatePlayerPos(e.clientX); });
-        window.addEventListener('mouseup', () => { isDragging = false; });
-        
-        catcherArea.addEventListener('touchstart', (e) => { updatePlayerPos(e.touches[0].clientX); });
-        catcherArea.addEventListener('touchmove', (e) => { if(isCatcherPlaying) { e.preventDefault(); updatePlayerPos(e.touches[0].clientX); } }, {passive: false});
+        if(catcherArea && catcherPlayer) {
+            let isDragging = false;
+            catcherArea.addEventListener('mousedown', (e) => { isDragging = true; updatePlayerPos(e.clientX); });
+            window.addEventListener('mousemove', (e) => { if(isDragging && isCatcherPlaying) updatePlayerPos(e.clientX); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            
+            catcherArea.addEventListener('touchstart', (e) => { updatePlayerPos(e.touches[0].clientX); }, {passive: true});
+            catcherArea.addEventListener('touchmove', (e) => { if(isCatcherPlaying) { e.preventDefault(); updatePlayerPos(e.touches[0].clientX); } }, {passive: false});
+        }
 
         function updatePlayerPos(clientX) {
+            if(!catcherArea || !catcherPlayer) return;
             const rect = catcherArea.getBoundingClientRect();
             let x = clientX - rect.left;
-            // Bound inside area
-            if(x < 30) x = 30;
-            if(x > rect.width - 30) x = rect.width - 30;
+            if(x < 30) x = 30; if(x > rect.width - 30) x = rect.width - 30;
             playerX = (x / rect.width) * 100;
-            catcherPlayer.style.left = `calc(${playerX}% - 28px)`; // 28px is half width of player approx
+            catcherPlayer.style.left = `calc(${playerX}% - 28px)`;
         }
 
         function startCatcherGame() {
-            document.getElementById('catcher-overlay').classList.add('hidden');
-            cScore = 0;
-            cLives = 3;
-            scoreEl.textContent = cScore;
+            const overlay = document.getElementById('catcher-overlay'); if(overlay) overlay.classList.add('hidden');
+            cScore = 0; cLives = 3; 
+            if(document.getElementById('catcher-score')) document.getElementById('catcher-score').textContent = cScore;
             updateLivesUI();
             
-            // Center player initially
-            playerX = 50;
-            catcherPlayer.style.left = `calc(${playerX}% - 28px)`;
+            playerX = 50; if(catcherPlayer) catcherPlayer.style.left = `calc(${playerX}% - 28px)`;
             
-            // Remove existing items
-            fallingItems.forEach(item => item.el.remove());
-            fallingItems = [];
-            itemSpawnCounter = 0;
-            
-            isCatcherPlaying = true;
-            catcherLoop();
+            fallingItems.forEach(item => item.el.remove()); fallingItems = []; itemSpawnCounter = 0;
+            isCatcherPlaying = true; catcherLoop();
         }
 
         function updateLivesUI() {
-            livesEl.textContent = '❤️'.repeat(cLives);
+            const livesEl = document.getElementById('catcher-lives');
+            if(livesEl) livesEl.textContent = '❤️'.repeat(cLives);
             if(cLives <= 0) endGame();
         }
 
         function endGame() {
-            isCatcherPlaying = false;
-            cancelAnimationFrame(catcherFrameId);
+            isCatcherPlaying = false; cancelAnimationFrame(catcherFrameId);
             const overlay = document.getElementById('catcher-overlay');
-            document.getElementById('catcher-overlay-title').textContent = cLives <= 0 ? "Game Over! 💥" : "Bermain Lagi?";
-            document.getElementById('catcher-overlay-desc').innerHTML = `Skor Akhir: <b>${cScore}</b><br>Keren banget! Mau coba lagi?`;
-            document.getElementById('catcher-start-btn').innerHTML = '<i class="fas fa-redo mr-2"></i> MAIN LAGI';
-            overlay.classList.remove('hidden');
+            if(overlay) {
+                document.getElementById('catcher-overlay-title').textContent = cLives <= 0 ? "Game Over! 💥" : "Jeda";
+                document.getElementById('catcher-overlay-desc').innerHTML = `Skor Akhir: <b>${cScore}</b><br>Keren banget! Mau coba lagi?`;
+                document.getElementById('catcher-start-btn').innerHTML = '<i class="fas fa-redo mr-2"></i> MAIN LAGI';
+                overlay.classList.remove('hidden');
+            }
         }
 
         function spawnItem() {
-            const isBad = Math.random() < 0.3; // 30% chance for a bug
+            if(!catcherArea) return;
+            const isBad = Math.random() < 0.3; 
             const itemType = isBad ? badItems[Math.floor(Math.random()*badItems.length)] : goodItems[Math.floor(Math.random()*goodItems.length)];
             
-            const el = document.createElement('div');
-            el.className = 'falling-item';
-            el.textContent = itemType;
-            el.style.left = `${Math.random() * 90 + 5}%`; // Random X 5% to 95%
-            el.style.top = '-50px';
-            
+            const el = document.createElement('div'); el.className = 'falling-item'; el.textContent = itemType;
+            el.style.left = `${Math.random() * 90 + 5}%`; el.style.top = '-50px';
             catcherArea.appendChild(el);
             
-            fallingItems.push({
-                el: el,
-                y: -50,
-                speed: 2 + Math.random() * 2 + (cScore * 0.05), // Speeds up as score increases
-                isBad: isBad,
-                value: isBad ? 0 : 10
-            });
+            fallingItems.push({ el: el, y: -50, speed: 2 + Math.random() * 2 + (cScore * 0.05), isBad: isBad, value: isBad ? 0 : 10 });
         }
 
         function createParticle(x, y, text, colorClass) {
-            const p = document.createElement('div');
-            p.className = `catcher-particle ${colorClass}`;
-            p.textContent = text;
-            p.style.left = `${x}px`;
-            p.style.top = `${y}px`;
-            catcherArea.appendChild(p);
+            if(!catcherArea) return;
+            const p = document.createElement('div'); p.className = `catcher-particle ${colorClass}`; p.textContent = text;
+            p.style.left = `${x}px`; p.style.top = `${y}px`; catcherArea.appendChild(p);
             setTimeout(() => p.remove(), 1000);
         }
 
         function catcherLoop() {
-            if(!isCatcherPlaying) return;
+            if(!isCatcherPlaying || !catcherArea || !catcherPlayer) return;
 
-            // Spawn items
             itemSpawnCounter++;
-            if(itemSpawnCounter > 40 - Math.min(20, cScore/2)) { // Spawn rate increases slightly
-                spawnItem();
-                itemSpawnCounter = 0;
-            }
+            if(itemSpawnCounter > 40 - Math.min(20, cScore/2)) { spawnItem(); itemSpawnCounter = 0; }
 
-            // Move and Check collision
             const playerRect = catcherPlayer.getBoundingClientRect();
             const areaRect = catcherArea.getBoundingClientRect();
 
             for(let i = fallingItems.length - 1; i >= 0; i--) {
-                let item = fallingItems[i];
-                item.y += item.speed;
-                item.el.style.top = `${item.y}px`;
+                let item = fallingItems[i]; item.y += item.speed; item.el.style.top = `${item.y}px`;
 
-                // Check out of bounds (missed)
-                if(item.y > areaRect.height) {
-                    item.el.remove();
-                    fallingItems.splice(i, 1);
-                    continue;
-                }
+                if(item.y > areaRect.height) { item.el.remove(); fallingItems.splice(i, 1); continue; }
 
-                // Check collision
                 const itemRect = item.el.getBoundingClientRect();
-                
-                // Simple AABB Collision
-                if (
-                    itemRect.left < playerRect.right - 10 &&
-                    itemRect.right > playerRect.left + 10 &&
-                    itemRect.top < playerRect.bottom &&
-                    itemRect.bottom > playerRect.top + 20
-                ) {
-                    // Collided!
-                    const px = itemRect.left - areaRect.left;
-                    const py = itemRect.top - areaRect.top;
-
+                if (itemRect.left < playerRect.right - 10 && itemRect.right > playerRect.left + 10 && itemRect.top < playerRect.bottom && itemRect.bottom > playerRect.top + 20) {
+                    const px = itemRect.left - areaRect.left; const py = itemRect.top - areaRect.top;
                     if(item.isBad) {
-                        cLives--;
-                        updateLivesUI();
-                        createParticle(px, py, "-1 ❤️", "text-red-500");
-                        // Shake screen effect
-                        catcherArea.style.transform = "translate(5px, 5px)";
-                        setTimeout(() => catcherArea.style.transform = "none", 100);
+                        cLives--; updateLivesUI(); createParticle(px, py, "-1 ❤️", "text-red-500");
+                        catcherArea.style.transform = "translate(5px, 5px)"; setTimeout(() => catcherArea.style.transform = "none", 100);
                     } else {
-                        cScore += item.value;
-                        scoreEl.textContent = cScore;
+                        cScore += item.value; if(document.getElementById('catcher-score')) document.getElementById('catcher-score').textContent = cScore;
                         createParticle(px, py, `+${item.value}`, "text-green-400 drop-shadow-md");
-                        catcherPlayer.style.transform = "scale(1.2)";
-                        setTimeout(() => catcherPlayer.style.transform = "scale(1)", 150);
+                        catcherPlayer.style.transform = "scale(1.2)"; setTimeout(() => catcherPlayer.style.transform = "scale(1)", 150);
                     }
-                    
-                    item.el.remove();
-                    fallingItems.splice(i, 1);
+                    item.el.remove(); fallingItems.splice(i, 1);
                 }
             }
-
             catcherFrameId = requestAnimationFrame(catcherLoop);
         }
 
-        // Make sure games don't start automatically until visible
-        window.addEventListener('DOMContentLoaded', () => {
-            // Initial positioning for player
-            const rect = catcherArea.getBoundingClientRect();
-            catcherPlayer.style.left = `calc(50% - 28px)`;
-        });
+        window.addEventListener('DOMContentLoaded', () => { if(catcherPlayer && catcherArea) catcherPlayer.style.left = `calc(50% - 28px)`; });
 
     </script>
 </body>
